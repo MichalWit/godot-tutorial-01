@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cvxv6q3oi7ypr"
+path="res://.godot/imported/Wave.wav-7dc7fd5f1c0921565a523af5b6969147.sample"
+
+[deps]
+
+source_file="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Audio/Sounds/Ambient/Wave.wav"
+dest_files=["res://.godot/imported/Wave.wav-7dc7fd5f1c0921565a523af5b6969147.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

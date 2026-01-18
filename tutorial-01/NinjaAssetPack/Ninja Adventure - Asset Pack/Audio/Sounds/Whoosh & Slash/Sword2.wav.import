@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c7cqciafb13rn"
+path="res://.godot/imported/Sword2.wav-b3c04ecbfa04ab9cb3f8394d7359dd81.sample"
+
+[deps]
+
+source_file="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Sword2.wav"
+dest_files=["res://.godot/imported/Sword2.wav-b3c04ecbfa04ab9cb3f8394d7359dd81.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
