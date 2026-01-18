@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cny2klbe27tcy"]
+[gd_scene load_steps=6 format=4 uid="uid://cny2klbe27tcy"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_xuufh"]
 [ext_resource type="PackedScene" uid="uid://6rv2tqkdepbs" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="3_6f4q3"]
@@ -59,14 +59,18 @@ texture = ExtResource("3_sx8ki")
 0:6/0 = 0
 0:6/0/terrain_set = 0
 0:6/0/terrain = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 0:6/0/terrains_peering_bit/right_side = 0
 0:6/0/terrains_peering_bit/bottom_right_corner = 0
 0:6/0/terrains_peering_bit/bottom_side = 0
 1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 2:6/0 = 0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 3:6/0 = 0
 3:6/0/terrain_set = 0
 3:6/0/terrain = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 3:6/0/terrains_peering_bit/right_side = 0
 3:6/0/terrains_peering_bit/bottom_right_corner = 0
 3:6/0/terrains_peering_bit/bottom_side = 0
@@ -75,6 +79,7 @@ texture = ExtResource("3_sx8ki")
 4:6/0 = 0
 4:6/0/terrain_set = 0
 4:6/0/terrain = 0
+4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 4:6/0/terrains_peering_bit/bottom_side = 0
 4:6/0/terrains_peering_bit/bottom_left_corner = 0
 4:6/0/terrains_peering_bit/left_side = 0
@@ -86,17 +91,22 @@ texture = ExtResource("3_sx8ki")
 0:7/0 = 0
 0:7/0/terrain_set = 0
 0:7/0/terrain = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 0:7/0/terrains_peering_bit/right_side = 0
 0:7/0/terrains_peering_bit/bottom_right_corner = 0
 0:7/0/terrains_peering_bit/bottom_side = 0
 0:7/0/terrains_peering_bit/top_side = 0
 0:7/0/terrains_peering_bit/top_right_corner = 0
 1:7/0 = 0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 2:7/0 = 0
+2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 3:7/0 = 0
+3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 4:7/0 = 0
 4:7/0/terrain_set = 0
 4:7/0/terrain = 0
+4:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 4:7/0/terrains_peering_bit/bottom_side = 0
 4:7/0/terrains_peering_bit/bottom_left_corner = 0
 4:7/0/terrains_peering_bit/left_side = 0
@@ -108,28 +118,38 @@ texture = ExtResource("3_sx8ki")
 8:7/0 = 0
 9:7/0 = 0
 0:8/0 = 0
+0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 2:8/0 = 0
+2:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 3:8/0 = 0
+3:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 4:8/0 = 0
+4:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 5:8/0 = 0
 7:8/0 = 0
 8:8/0 = 0
 9:8/0 = 0
 0:9/0 = 0
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 4:9/0 = 0
+4:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 5:9/0 = 0
 9:9/0 = 0
 0:10/0 = 0
 0:10/0/terrain_set = 0
 0:10/0/terrain = 0
+0:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 0:10/0/terrains_peering_bit/right_side = 0
 0:10/0/terrains_peering_bit/top_side = 0
 0:10/0/terrains_peering_bit/top_right_corner = 0
 1:10/0 = 0
+1:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 2:10/0 = 0
+2:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 3:10/0 = 0
 3:10/0/terrain_set = 0
 3:10/0/terrain = 0
+3:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 3:10/0/terrains_peering_bit/right_side = 0
 3:10/0/terrains_peering_bit/left_side = 0
 3:10/0/terrains_peering_bit/top_left_corner = 0
@@ -138,6 +158,7 @@ texture = ExtResource("3_sx8ki")
 4:10/0 = 0
 4:10/0/terrain_set = 0
 4:10/0/terrain = 0
+4:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 4:10/0/terrains_peering_bit/left_side = 0
 4:10/0/terrains_peering_bit/top_left_corner = 0
 4:10/0/terrains_peering_bit/top_side = 0
@@ -159,6 +180,7 @@ texture = ExtResource("3_sx8ki")
 1:8/0/terrains_peering_bit/top_right_corner = 0
 
 [sub_resource type="TileSet" id="TileSet_102mq"]
+physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "DungeonWalls"
 terrain_set_0/terrain_0/color = Color(0.7955869, 0.6537548, 1, 1)
@@ -181,4 +203,5 @@ next_scene = "res://Scenes/GameScene/game_scene.tscn"
 player_spawn_position = Vector2(-87, 20)
 
 [node name="WallLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAEAAIAAAAEAAoAAAAEAAEAAAAEAAcAAAAEAAAAAAAEAAcAAAAEAP//AAAEAAcAAAAEAP7/AAAEAAcAAAAEAP3/AAAEAAYAAAADAAIAAAADAAoAAAADAAEAAAABAAgAAAADAAAAAAABAAgAAAADAP//AAABAAgAAAADAP7/AAABAAgAAAADAP3/AAADAAYAAAACAAIAAAADAAoAAAACAAEAAAABAAgAAAACAAAAAAABAAgAAAACAP//AAABAAgAAAACAP7/AAABAAgAAAACAP3/AAADAAYAAAABAAIAAAADAAoAAAABAAEAAAABAAgAAAABAAAAAAABAAgAAAABAP//AAABAAgAAAABAP7/AAABAAgAAAABAP3/AAADAAYAAAAAAAIAAAADAAoAAAAAAAEAAAABAAgAAAAAAAAAAAABAAgAAAAAAP//AAABAAgAAAAAAP7/AAABAAgAAAAAAP3/AAADAAYAAAD//wIAAAADAAoAAAD//wEAAAABAAgAAAD//wAAAAABAAgAAAD/////AAABAAgAAAD///7/AAABAAgAAAD///3/AAADAAYAAAD+/wIAAAADAAoAAAD+/wEAAAABAAgAAAD+/wAAAAABAAgAAAD+////AAABAAgAAAD+//7/AAABAAgAAAD+//3/AAADAAYAAAD9/wIAAAADAAoAAAD9/wEAAAABAAgAAAD9/wAAAAABAAgAAAD9////AAABAAgAAAD9//7/AAABAAgAAAD9//3/AAADAAYAAAD8/wIAAAADAAoAAAD8/wEAAAABAAgAAAD8/wAAAAABAAgAAAD8////AAABAAgAAAD8//7/AAABAAgAAAD8//3/AAADAAYAAAD7/wIAAAADAAoAAAD7/wEAAAABAAgAAAD7/wAAAAABAAgAAAD7////AAABAAgAAAD7//7/AAABAAgAAAD7//3/AAADAAYAAAD6/wIAAAADAAoAAAD6/wEAAAABAAgAAAD6/wAAAAABAAgAAAD6////AAABAAgAAAD6//7/AAABAAgAAAD6//3/AAADAAYAAAD5/wIAAAADAAoAAAD5/wEAAAABAAgAAAD5/wAAAAABAAgAAAD5////AAABAAgAAAD5//7/AAABAAgAAAD5//3/AAADAAYAAAD4/wIAAAAAAAoAAAD4/wEAAAAAAAcAAAD4/wAAAAAAAAcAAAD4////AAAAAAcAAAD4//7/AAAAAAcAAAD4//3/AAAAAAYAAAA=")
 tile_set = SubResource("TileSet_102mq")
