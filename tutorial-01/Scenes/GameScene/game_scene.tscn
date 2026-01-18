@@ -801,3 +801,4 @@ position = Vector2(1, 9)
 zoom = Vector2(5, 5)
 
 [node name="SceneEntrance" parent="." instance=ExtResource("5_oi8ly")]
+position = Vector2(-60, -25)
