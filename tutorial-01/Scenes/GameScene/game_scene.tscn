@@ -788,11 +788,11 @@ tile_set = SubResource("TileSet_kr7le")
 [node name="ObstackleLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 position = Vector2(26, 18)
-tile_map_data = PackedByteArray("AAD+//7/AQACAAAAAAD5//z/AQAAAAIAAAD6//r/AQAAAAIAAAD+//n/AQAAAAIAAAD2//v/AQAAAAIAAAD2//3/AQAAAAIAAAACAP7/AQAAAAIAAAADAPz/AQAAAAIAAAAFAP//AQAAAAIAAAACAAAAAQAAAAIAAAD6/wAAAAAAAAcAAAA=")
+tile_map_data = PackedByteArray("AAD5//z/AQAAAAIAAAD6//r/AQAAAAIAAAD+//n/AQAAAAIAAAD2//v/AQAAAAIAAAD2//3/AQAAAAIAAAACAP7/AQAAAAIAAAADAPz/AQAAAAIAAAAFAP//AQAAAAIAAAACAAAAAQAAAAIAAAD6/wAAAAAAAAcAAAD+//7/AQACAAAAAAA=")
 tile_set = SubResource("TileSet_l6yvh")
 
 [node name="Player" parent="ObstackleLayer" instance=ExtResource("1_2p8i2")]
-position = Vector2(-25, -3)
+position = Vector2(-87, 20)
 motion_mode = 1
 move_speed = 60.0
 
@@ -802,3 +802,4 @@ zoom = Vector2(5, 5)
 
 [node name="SceneEntrance" parent="." instance=ExtResource("5_oi8ly")]
 position = Vector2(-60, -25)
+player_spawn_position = Vector2(-87, 20)
