@@ -14,6 +14,10 @@ config/name="tutorial-01"
 run/main_scene="uid://imbavgi1tubs"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
+[autoload]
+
+SceneManager="*res://Scenes/SceneManager/scene_manager.tscn"
+
 [file_customization]
 
 folder_colors={
