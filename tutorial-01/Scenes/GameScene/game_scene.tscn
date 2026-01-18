@@ -804,6 +804,7 @@ zoom = Vector2(5, 5)
 
 [node name="SceneEntrance" type="Area2D" parent="."]
 script = ExtResource("4_kr7le")
+next_scene = "res://Scenes/DungeonScene/dungeon_scene.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneEntrance"]
 position = Vector2(1, 43)
