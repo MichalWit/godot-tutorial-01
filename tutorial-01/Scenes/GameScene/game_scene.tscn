@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://imbavgi1tubs"]
+[gd_scene load_steps=12 format=4 uid="uid://imbavgi1tubs"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://d1ahb83e2auyd" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_04h35"]
 [ext_resource type="Texture2D" uid="uid://beibg8e348m4g" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="2_l6yvh"]
 [ext_resource type="Texture2D" uid="uid://dc55mfo8u8bxu" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetReliefDetail.png" id="2_oi8ly"]
+[ext_resource type="Script" uid="uid://b38x55whcb21g" path="res://Scenes/SceneEntrance/scene_entrance.gd" id="4_kr7le"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("2_l6yvh")
@@ -774,6 +775,8 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_kr7le")
 sources/0 = SubResource("TileSetAtlasSource_12ovb")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr7le"]
+
 [node name="GameScene" type="Node2D"]
 
 [node name="GrassLayer" type="TileMapLayer" parent="."]
@@ -798,3 +801,13 @@ move_speed = 60.0
 [node name="Camera2D" type="Camera2D" parent="ObstackleLayer/Player"]
 position = Vector2(1, 9)
 zoom = Vector2(5, 5)
+
+[node name="SceneEntrance" type="Area2D" parent="."]
+script = ExtResource("4_kr7le")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneEntrance"]
+position = Vector2(1, 43)
+shape = SubResource("RectangleShape2D_kr7le")
+
+[connection signal="body_entered" from="SceneEntrance" to="SceneEntrance" method="_on_body_entered"]
+[connection signal="body_exited" from="SceneEntrance" to="SceneEntrance" method="_on_body_exited"]
