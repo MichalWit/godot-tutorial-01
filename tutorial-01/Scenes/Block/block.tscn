@@ -10,6 +10,7 @@ atlas = ExtResource("1_83tkd")
 region = Rect2(128, 48, 16, 16)
 
 [node name="Block" type="RigidBody2D"]
+gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_aonu2")
