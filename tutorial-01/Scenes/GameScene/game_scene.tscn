@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://imbavgi1tubs"]
+[gd_scene load_steps=12 format=4 uid="uid://imbavgi1tubs"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://d1ahb83e2auyd" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_04h35"]
 [ext_resource type="Texture2D" uid="uid://beibg8e348m4g" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="2_l6yvh"]
 [ext_resource type="Texture2D" uid="uid://dc55mfo8u8bxu" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetReliefDetail.png" id="2_oi8ly"]
 [ext_resource type="PackedScene" uid="uid://6rv2tqkdepbs" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="5_oi8ly"]
+[ext_resource type="PackedScene" uid="uid://c0tjqdlxl5qw0" path="res://Scenes/Block/block.tscn" id="6_12ovb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("2_l6yvh")
@@ -803,3 +804,6 @@ zoom = Vector2(5, 5)
 [node name="SceneEntrance" parent="." instance=ExtResource("5_oi8ly")]
 position = Vector2(-60, -25)
 player_spawn_position = Vector2(-87, 20)
+
+[node name="Block" parent="." instance=ExtResource("6_12ovb")]
+position = Vector2(-9, 39)
