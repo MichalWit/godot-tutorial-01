@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 
 SceneManager="*res://Scenes/SceneManager/scene_manager.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [file_customization]
 
 folder_colors={
