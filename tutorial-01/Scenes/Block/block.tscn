@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0tjqdlxl5qw0"]
+[gd_scene load_steps=5 format=3 uid="uid://c0tjqdlxl5qw0"]
 
 [ext_resource type="Texture2D" uid="uid://bs1gqhvschoqq" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="1_83tkd"]
+[ext_resource type="Script" uid="uid://cliv3q2toiset" path="res://Scenes/Block/block.gd" id="1_wyci5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aonu2"]
 size = Vector2(16, 16)
@@ -11,6 +12,7 @@ region = Rect2(128, 48, 16, 16)
 
 [node name="Block" type="RigidBody2D"]
 gravity_scale = 0.0
+script = ExtResource("1_wyci5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_aonu2")

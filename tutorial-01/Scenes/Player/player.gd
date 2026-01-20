@@ -24,5 +24,13 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.play("move_up")
 	else: #velocity == Vector2(0,0)
 		$AnimatedSprite2D.stop()
+		
+	var collision: KinematicCollision2D = get_last_slide_collision()
+	if collision != null:
+		var collider = collision.get_collider()
+		if collider is Block:
+			print(collision.get_angle())
+		else:
+			print("just some collision")
 	
 	move_and_slide()
