@@ -28,6 +28,10 @@ folder_colors={
 "res://NinjaAssetPack/": "green"
 }
 
+[global_group]
+
+wall="A wall tilemaplayer"
+
 [input]
 
 move_right={
