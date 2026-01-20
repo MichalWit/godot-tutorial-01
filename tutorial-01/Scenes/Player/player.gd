@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 	var collision: KinematicCollision2D = get_last_slide_collision()
 	if collision != null:
 		var collider: Object = collision.get_collider()
-		if collider is Block:
+		if collider.is_in_group("pushable"):
 			var normal: Vector2 = collision.get_normal()
 			collider.apply_central_force(-normal * push_strength)
 			
