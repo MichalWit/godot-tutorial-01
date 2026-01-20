@@ -28,9 +28,12 @@ func _process(delta: float) -> void:
 		
 	var collision: KinematicCollision2D = get_last_slide_collision()
 	if collision != null:
-		var collider = collision.get_collider()
+		var collider: Object = collision.get_collider()
 		if collider is Block:
 			var normal: Vector2 = collision.get_normal()
 			collider.apply_central_force(-normal * push_strength)
+			
+		if collider.is_in_group("wall"):
+			print("wall")
 	
 	move_and_slide()

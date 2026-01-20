@@ -10,7 +10,7 @@ size = Vector2(16, 16)
 atlas = ExtResource("1_83tkd")
 region = Rect2(128, 48, 16, 16)
 
-[node name="Block" type="RigidBody2D"]
+[node name="Block" type="RigidBody2D" groups=["pushable"]]
 gravity_scale = 0.0
 linear_damp = 15.0
 script = ExtResource("1_wyci5")
