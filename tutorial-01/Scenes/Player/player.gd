@@ -29,8 +29,7 @@ func _process(delta: float) -> void:
 	if collision != null:
 		var collider = collision.get_collider()
 		if collider is Block:
-			print(collision.get_angle())
-		else:
-			print("just some collision")
+			var normal: Vector2 = collision.get_normal()
+			collider.apply_central_force(-normal)
 	
 	move_and_slide()
