@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtakg3q1hgwnj"]
+
+[ext_resource type="Texture2D" uid="uid://dc55mfo8u8bxu" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetReliefDetail.png" id="1_vst31"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aukdc"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g7ru"]
+atlas = ExtResource("1_vst31")
+region = Rect2(32, 0, 16, 15)
+
+[node name="LockedDoor" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aukdc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0g7ru")
