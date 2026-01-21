@@ -818,3 +818,4 @@ position = Vector2(-9, 39)
 lock_rotation = true
 
 [connection signal="pressed" from="PuzzleButton" to="ObstackleLayer/LockedDoor" method="_on_puzzle_button_pressed"]
+[connection signal="unpressed" from="PuzzleButton" to="ObstackleLayer/LockedDoor" method="_on_puzzle_button_unpressed"]

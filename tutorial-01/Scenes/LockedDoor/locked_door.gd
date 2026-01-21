@@ -13,3 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_puzzle_button_pressed() -> void:
 	print("_on_puzzle_button_pressed signal received")
+
+
+func _on_puzzle_button_unpressed() -> void:
+	print("_on_puzzle_button_unpressed signal received")
