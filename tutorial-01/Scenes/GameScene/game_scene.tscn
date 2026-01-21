@@ -816,3 +816,5 @@ player_spawn_position = Vector2(-87, 20)
 [node name="Block" parent="." instance=ExtResource("6_12ovb")]
 position = Vector2(-9, 39)
 lock_rotation = true
+
+[connection signal="pressed" from="PuzzleButton" to="ObstackleLayer/LockedDoor" method="_on_puzzle_button_pressed"]
