@@ -1,6 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://uq2x71y3mrvf"]
+[gd_scene load_steps=6 format=3 uid="uid://uq2x71y3mrvf"]
+
+[ext_resource type="Texture2D" uid="uid://bs1gqhvschoqq" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="1_4jafl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c66ud"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dls00"]
+atlas = ExtResource("1_4jafl")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lffmm"]
+atlas = ExtResource("1_4jafl")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7725"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dls00")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lffmm")
+}],
+"loop": true,
+"name": &"unpressed",
+"speed": 5.0
+}]
 
 [node name="PuzzleButton" type="Area2D"]
 
@@ -8,3 +38,6 @@
 shape = SubResource("RectangleShape2D_c66ud")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n7725")
+animation = &"pressed"
+frame_progress = 0.71239674
