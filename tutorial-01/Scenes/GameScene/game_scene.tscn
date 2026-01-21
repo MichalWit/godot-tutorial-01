@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://imbavgi1tubs"]
+[gd_scene load_steps=13 format=4 uid="uid://imbavgi1tubs"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://d1ahb83e2auyd" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_04h35"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dc55mfo8u8bxu" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetReliefDetail.png" id="2_oi8ly"]
 [ext_resource type="PackedScene" uid="uid://6rv2tqkdepbs" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="5_oi8ly"]
 [ext_resource type="PackedScene" uid="uid://c0tjqdlxl5qw0" path="res://Scenes/Block/block.tscn" id="6_12ovb"]
+[ext_resource type="PackedScene" uid="uid://uq2x71y3mrvf" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="7_ohrk8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("2_l6yvh")
@@ -785,6 +786,9 @@ tile_set = SubResource("TileSet_kr7le")
 [node name="FloorLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD9//3/AAANAAoAAAD8//3/AAAPAAcAAAD8//7/AAASAAkAAAD7//7/AAALAAcAAAD7////AAALAAkAAAD8////AAAQAAoAAAD9////AAASAAcAAAD9/wAAAAAOAAkAAAACAP3/AAALAAoAAAADAP3/AAAMAAoAAAAEAP3/AAARAAcAAAAFAP3/AAANAAcAAAAFAP7/AAANAAgAAAAFAP//AAANAAkAAAAEAP//AAALAAkAAAAEAP7/AAALAAgAAAADAAEAAAANAAoAAAACAAEAAAAPAAcAAAACAAIAAAAOAAkAAAD//wMAAAAOAAoAAAD+/wQAAAAOAAoAAAD4/wMAAAALAAoAAAD5/wMAAAASAAcAAAD5/wQAAAAPAAoAAAD6/wQAAAANAAoAAAD7/wUAAAAOAAoAAAD3/wAAAAANAAoAAAD2/wAAAAATAAoAAAD1/wAAAAAQAAcAAAD0/wAAAAALAAcAAAD0/wEAAAALAAgAAAD0/wIAAAALAAkAAAD1/wMAAAALAAkAAAD2/wMAAAANAAkAAAD2/wIAAAANAAcAAAD1/wIAAAAUAAcAAAD1/wEAAAANAAgAAAD2////AAAOAAcAAAA=")
 tile_set = SubResource("TileSet_kr7le")
+
+[node name="PuzzleButton" parent="." instance=ExtResource("7_ohrk8")]
+position = Vector2(-26, 38)
 
 [node name="ObstackleLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true

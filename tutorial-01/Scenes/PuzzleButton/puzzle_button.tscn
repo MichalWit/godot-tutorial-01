@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://uq2x71y3mrvf"]
+[gd_scene load_steps=7 format=3 uid="uid://uq2x71y3mrvf"]
 
 [ext_resource type="Texture2D" uid="uid://bs1gqhvschoqq" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="1_4jafl"]
+[ext_resource type="Script" uid="uid://p0x8i51y2ej2" path="res://Scenes/PuzzleButton/puzzle_button.gd" id="1_dls00"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c66ud"]
 size = Vector2(16, 16)
@@ -33,6 +34,7 @@ animations = [{
 }]
 
 [node name="PuzzleButton" type="Area2D"]
+script = ExtResource("1_dls00")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_c66ud")
@@ -40,4 +42,7 @@ shape = SubResource("RectangleShape2D_c66ud")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n7725")
 animation = &"pressed"
-frame_progress = 0.71239674
+frame_progress = 0.35932642
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
