@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0tjqdlxl5qw0"]
+[gd_scene load_steps=6 format=3 uid="uid://c0tjqdlxl5qw0"]
 
 [ext_resource type="Texture2D" uid="uid://bs1gqhvschoqq" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="1_83tkd"]
 [ext_resource type="Script" uid="uid://cliv3q2toiset" path="res://Scenes/Block/block.gd" id="1_wyci5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wyci5"]
+bounce = 0.8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aonu2"]
 size = Vector2(16, 16)
@@ -11,6 +14,7 @@ atlas = ExtResource("1_83tkd")
 region = Rect2(128, 48, 16, 16)
 
 [node name="Block" type="RigidBody2D" groups=["pushable"]]
+physics_material_override = SubResource("PhysicsMaterial_wyci5")
 gravity_scale = 0.0
 linear_damp = 15.0
 script = ExtResource("1_wyci5")
