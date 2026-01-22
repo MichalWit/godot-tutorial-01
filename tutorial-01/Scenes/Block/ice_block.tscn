@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0yw3vskqj4go"]
+
+[ext_resource type="PackedScene" uid="uid://c0tjqdlxl5qw0" path="res://Scenes/Block/block.tscn" id="1_4tccs"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4tccs"]
+friction = 0.1
+
+[node name="Block" instance=ExtResource("1_4tccs")]
+physics_material_override = SubResource("PhysicsMaterial_4tccs")
