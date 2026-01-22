@@ -11,7 +11,7 @@ size = Vector2(15, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wyci5"]
 atlas = ExtResource("1_83tkd")
-region = Rect2(128, 48, 16, 16)
+region = Rect2(129, 49, 14, 14)
 
 [node name="Block" type="RigidBody2D" groups=["pushable"]]
 physics_material_override = SubResource("PhysicsMaterial_wyci5")

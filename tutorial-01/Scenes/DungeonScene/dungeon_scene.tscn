@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cny2klbe27tcy"]
+[gd_scene load_steps=13 format=4 uid="uid://cny2klbe27tcy"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_xuufh"]
 [ext_resource type="PackedScene" uid="uid://6rv2tqkdepbs" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="3_6f4q3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://uq2x71y3mrvf" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="5_8ho00"]
 [ext_resource type="PackedScene" uid="uid://c0tjqdlxl5qw0" path="res://Scenes/Block/block.tscn" id="6_odg1s"]
 [ext_resource type="PackedScene" uid="uid://dtakg3q1hgwnj" path="res://Scenes/LockedDoor/locked_door.tscn" id="7_n5fck"]
+[ext_resource type="PackedScene" uid="uid://c0yw3vskqj4go" path="res://Scenes/Block/ice_block.tscn" id="8_odg1s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6f4q3"]
 texture = ExtResource("3_sx8ki")
@@ -850,6 +851,9 @@ position = Vector2(-52, -107)
 [node name="LockedDoor" parent="." instance=ExtResource("7_n5fck")]
 position = Vector2(-25, -151)
 buttons_needed = 2
+
+[node name="Block3" parent="." instance=ExtResource("8_odg1s")]
+position = Vector2(-2, 4)
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
