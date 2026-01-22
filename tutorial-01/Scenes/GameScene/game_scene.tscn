@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://imbavgi1tubs"]
+[gd_scene load_steps=16 format=4 uid="uid://imbavgi1tubs"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://d1ahb83e2auyd" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_04h35"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://c0tjqdlxl5qw0" path="res://Scenes/Block/block.tscn" id="6_12ovb"]
 [ext_resource type="PackedScene" uid="uid://dtakg3q1hgwnj" path="res://Scenes/LockedDoor/locked_door.tscn" id="6_elpgg"]
 [ext_resource type="PackedScene" uid="uid://uq2x71y3mrvf" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="7_ohrk8"]
+[ext_resource type="PackedScene" uid="uid://cwd2rsvu0o7n0" path="res://Scenes/PuzzleButton/single_use_puzzle_button.tscn" id="9_g3lhp"]
+[ext_resource type="PackedScene" uid="uid://c0yw3vskqj4go" path="res://Scenes/Block/ice_block.tscn" id="10_dc78n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("2_l6yvh")
@@ -816,6 +818,12 @@ player_spawn_position = Vector2(-87, 20)
 [node name="Block" parent="." instance=ExtResource("6_12ovb")]
 position = Vector2(-9, 39)
 lock_rotation = true
+
+[node name="SingleUsePuzzleButton" parent="." instance=ExtResource("9_g3lhp")]
+position = Vector2(8, 89)
+
+[node name="IceBlock" parent="." instance=ExtResource("10_dc78n")]
+position = Vector2(8, 65)
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
