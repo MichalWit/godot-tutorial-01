@@ -849,3 +849,9 @@ position = Vector2(-52, -107)
 
 [node name="LockedDoor" parent="." instance=ExtResource("7_n5fck")]
 position = Vector2(-32, -134)
+buttons_needed = 2
+
+[connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
+[connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
+[connection signal="pressed" from="PuzzleButton2" to="LockedDoor" method="_on_puzzle_button_pressed"]
+[connection signal="unpressed" from="PuzzleButton2" to="LockedDoor" method="_on_puzzle_button_unpressed"]
