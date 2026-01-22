@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://cny2klbe27tcy"]
+[gd_scene load_steps=12 format=4 uid="uid://cny2klbe27tcy"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_xuufh"]
 [ext_resource type="PackedScene" uid="uid://6rv2tqkdepbs" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="3_6f4q3"]
 [ext_resource type="Texture2D" uid="uid://bw877i24l5ful" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="3_sx8ki"]
 [ext_resource type="Texture2D" uid="uid://dp7f47tcblx5d" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInteriorFloor.png" id="4_6f4q3"]
+[ext_resource type="PackedScene" uid="uid://uq2x71y3mrvf" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="5_8ho00"]
+[ext_resource type="PackedScene" uid="uid://c0tjqdlxl5qw0" path="res://Scenes/Block/block.tscn" id="6_odg1s"]
+[ext_resource type="PackedScene" uid="uid://dtakg3q1hgwnj" path="res://Scenes/LockedDoor/locked_door.tscn" id="7_n5fck"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6f4q3"]
 texture = ExtResource("3_sx8ki")
@@ -823,6 +826,12 @@ position = Vector2(-25, -19)
 next_scene = "res://Scenes/GameScene/game_scene.tscn"
 player_spawn_position = Vector2(-87, 20)
 
+[node name="PuzzleButton" parent="." instance=ExtResource("5_8ho00")]
+position = Vector2(6, -105)
+
+[node name="PuzzleButton2" parent="." instance=ExtResource("5_8ho00")]
+position = Vector2(-70, -107)
+
 [node name="Player" parent="." instance=ExtResource("1_xuufh")]
 position = Vector2(-26, 3)
 motion_mode = 1
@@ -831,3 +840,12 @@ move_speed = 60.0
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, 9)
 zoom = Vector2(5, 5)
+
+[node name="Block" parent="." instance=ExtResource("6_odg1s")]
+position = Vector2(-12, -105)
+
+[node name="Block2" parent="." instance=ExtResource("6_odg1s")]
+position = Vector2(-52, -107)
+
+[node name="LockedDoor" parent="." instance=ExtResource("7_n5fck")]
+position = Vector2(-32, -134)
