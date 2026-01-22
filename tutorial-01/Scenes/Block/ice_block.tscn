@@ -10,7 +10,7 @@ bounce = 0.05
 atlas = ExtResource("2_8ron8")
 region = Rect2(1, 33, 14, 14)
 
-[node name="Block" instance=ExtResource("1_4tccs")]
+[node name="IceBlock" instance=ExtResource("1_4tccs")]
 physics_material_override = SubResource("PhysicsMaterial_8ron8")
 linear_damp = 0.05
 
