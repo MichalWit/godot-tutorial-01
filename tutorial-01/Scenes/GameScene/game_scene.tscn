@@ -800,7 +800,6 @@ tile_set = SubResource("TileSet_l6yvh")
 [node name="Player" parent="ObstackleLayer" instance=ExtResource("1_2p8i2")]
 position = Vector2(-87, 20)
 motion_mode = 1
-move_speed = 60.0
 
 [node name="Camera2D" type="Camera2D" parent="ObstackleLayer/Player"]
 position = Vector2(1, 9)

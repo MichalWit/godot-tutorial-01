@@ -7,7 +7,7 @@
 bounce = 0.8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aonu2"]
-size = Vector2(16, 16)
+size = Vector2(15, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wyci5"]
 atlas = ExtResource("1_83tkd")
