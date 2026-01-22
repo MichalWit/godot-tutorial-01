@@ -16,7 +16,7 @@ region = Rect2(128, 48, 16, 16)
 [node name="Block" type="RigidBody2D" groups=["pushable"]]
 physics_material_override = SubResource("PhysicsMaterial_wyci5")
 gravity_scale = 0.0
-linear_damp = 15.0
+linear_damp = 3.0
 script = ExtResource("1_wyci5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
