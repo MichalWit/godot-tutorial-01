@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://drx2rqs0fhxir"]
+[gd_scene load_steps=6 format=3 uid="uid://drx2rqs0fhxir"]
 
 [ext_resource type="Texture2D" uid="uid://ddv72jadawsox" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/FighterRed/SpriteSheet.png" id="1_3am0f"]
 [ext_resource type="Script" uid="uid://dlrqrxfeebphc" path="res://Scenes/NPC/npc.gd" id="1_bjna2"]
+[ext_resource type="Texture2D" uid="uid://d02cgh0qf7hv8" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_0s07e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjna2"]
 atlas = ExtResource("1_3am0f")
@@ -19,3 +20,8 @@ texture = SubResource("AtlasTexture_bjna2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_0s07e")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_0s07e")
