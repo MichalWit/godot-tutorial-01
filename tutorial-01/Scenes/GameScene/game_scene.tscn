@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://imbavgi1tubs"]
+[gd_scene load_steps=20 format=4 uid="uid://imbavgi1tubs"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://d1ahb83e2auyd" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_04h35"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://uq2x71y3mrvf" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="7_ohrk8"]
 [ext_resource type="PackedScene" uid="uid://cwd2rsvu0o7n0" path="res://Scenes/PuzzleButton/single_use_puzzle_button.tscn" id="9_g3lhp"]
 [ext_resource type="PackedScene" uid="uid://c0yw3vskqj4go" path="res://Scenes/Block/ice_block.tscn" id="10_dc78n"]
+[ext_resource type="PackedScene" uid="uid://drx2rqs0fhxir" path="res://Scenes/NPC/npc.tscn" id="11_dc78n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("2_l6yvh")
@@ -856,6 +857,9 @@ shape = SubResource("RectangleShape2D_dc78n")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="PuzzleWalls"]
 position = Vector2(-42, 40)
 shape = SubResource("RectangleShape2D_6qy3m")
+
+[node name="NPC" parent="." instance=ExtResource("11_dc78n")]
+position = Vector2(28, 89)
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
