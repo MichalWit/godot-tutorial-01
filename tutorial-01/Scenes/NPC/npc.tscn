@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://drx2rqs0fhxir"]
+[gd_scene load_steps=7 format=3 uid="uid://drx2rqs0fhxir"]
 
 [ext_resource type="Texture2D" uid="uid://ddv72jadawsox" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/FighterRed/SpriteSheet.png" id="1_3am0f"]
 [ext_resource type="Script" uid="uid://dlrqrxfeebphc" path="res://Scenes/NPC/npc.gd" id="1_bjna2"]
@@ -10,6 +10,9 @@ region = Rect2(0, 0, 16.321976, 17.739887)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0s07e"]
 size = Vector2(12, 13)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0s07e"]
+font_color = Color(0.3537501, 0.21282387, 9.62615e-08, 1)
 
 [node name="NPC" type="StaticBody2D"]
 script = ExtResource("1_bjna2")
@@ -30,3 +33,11 @@ offset_right = 316.00003
 offset_bottom = 468.0
 scale = Vector2(3.7, 3.7)
 texture = ExtResource("3_0s07e")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 243.0
+offset_top = 494.0
+offset_right = 468.0
+offset_bottom = 536.0
+text = "Hello There!"
+label_settings = SubResource("LabelSettings_0s07e")
