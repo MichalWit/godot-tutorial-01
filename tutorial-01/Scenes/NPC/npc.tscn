@@ -24,6 +24,9 @@ shape = SubResource("RectangleShape2D_0s07e")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_right = 300.0
-offset_bottom = 58.0
+offset_left = 16.00003
+offset_top = 410.0
+offset_right = 316.00003
+offset_bottom = 468.0
+scale = Vector2(3.7, 3.7)
 texture = ExtResource("3_0s07e")
