@@ -47,3 +47,17 @@ func __move_player() -> void:
 		$InteractionArea.position = Vector2(0, -16)
 	else: #velocity == Vector2(0,0)
 		$AnimatedSprite2D.stop()
+
+
+func _on_interaction_area_body_entered(body: Node2D) -> void:
+	print("func _on_interaction_area_area_entered")
+	if body.is_in_group("interactable"):
+		print("collider.can_interact = true")
+		body.can_interact = true
+
+
+func _on_interaction_area_body_exited(body: Node2D) -> void:
+	print("_on_interaction_area_area_exited")
+	if body.is_in_group("interactable"):
+		print("collider.can_interact = false")
+		body.can_interact = false
