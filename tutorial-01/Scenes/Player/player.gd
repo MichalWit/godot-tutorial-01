@@ -35,11 +35,15 @@ func __move_player() -> void:
 	
 	if velocity.x > 0 :
 		$AnimatedSprite2D.play("move_right")
+		$InteractionArea.position = Vector2(8, -8)
 	elif velocity.x < 0 :
 		$AnimatedSprite2D.play("move_left")
+		$InteractionArea.position = Vector2(-8, -8)
 	elif velocity.y > 0 :
 		$AnimatedSprite2D.play("move_down")
+		$InteractionArea.position = Vector2(0, 0)
 	elif velocity.y < 0 :
 		$AnimatedSprite2D.play("move_up")
+		$InteractionArea.position = Vector2(0, -16)
 	else: #velocity == Vector2(0,0)
 		$AnimatedSprite2D.stop()
