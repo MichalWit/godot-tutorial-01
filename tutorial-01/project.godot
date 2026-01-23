@@ -32,6 +32,7 @@ folder_colors={
 
 wall="A wall tilemaplayer"
 pushable="pushable things"
+interactable=""
 
 [input]
 

@@ -15,7 +15,7 @@ size = Vector2(12, 13)
 [sub_resource type="LabelSettings" id="LabelSettings_0s07e"]
 font_color = Color(0.3537501, 0.21282387, 9.62615e-08, 1)
 
-[node name="NPC" type="StaticBody2D"]
+[node name="NPC" type="StaticBody2D" groups=["interactable"]]
 script = ExtResource("1_bjna2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
