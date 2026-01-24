@@ -825,22 +825,22 @@ push_strength = 200.0
 position = Vector2(1, 9)
 zoom = Vector2(5, 5)
 
-[node name="NPC" parent="ObstackleLayer" instance=ExtResource("11_dc78n")]
+[node name="Warrior" parent="ObstackleLayer" instance=ExtResource("11_dc78n")]
 position = Vector2(2, 71)
 
-[node name="NPC2" parent="ObstackleLayer" instance=ExtResource("11_dc78n")]
+[node name="Eskimo" parent="ObstackleLayer" instance=ExtResource("11_dc78n")]
 position = Vector2(37, 47)
 
-[node name="Sprite2D" parent="ObstackleLayer/NPC2" index="0"]
+[node name="Sprite2D" parent="ObstackleLayer/Eskimo" index="0"]
 texture = SubResource("AtlasTexture_rpdpv")
 
-[node name="CollisionShape2D" parent="ObstackleLayer/NPC2" index="1"]
+[node name="CollisionShape2D" parent="ObstackleLayer/Eskimo" index="1"]
 visible = false
 
-[node name="Face" parent="ObstackleLayer/NPC2/CanvasLayer/Dialog" index="0"]
+[node name="Face" parent="ObstackleLayer/Eskimo/CanvasLayer/Dialog" index="0"]
 texture = ExtResource("8_bkvnf")
 
-[node name="Label" parent="ObstackleLayer/NPC2/CanvasLayer" index="1"]
+[node name="Label" parent="ObstackleLayer/Eskimo/CanvasLayer" index="1"]
 text = "Cave is in the east!"
 
 [node name="LockedDoor" parent="." instance=ExtResource("6_elpgg")]
@@ -886,4 +886,4 @@ shape = SubResource("RectangleShape2D_6qy3m")
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
 
-[editable path="ObstackleLayer/NPC2"]
+[editable path="ObstackleLayer/Eskimo"]
