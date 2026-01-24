@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://imbavgi1tubs"]
+[gd_scene load_steps=23 format=4 uid="uid://imbavgi1tubs"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://d1ahb83e2auyd" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_04h35"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://6rv2tqkdepbs" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="5_oi8ly"]
 [ext_resource type="PackedScene" uid="uid://c0tjqdlxl5qw0" path="res://Scenes/Block/block.tscn" id="6_12ovb"]
 [ext_resource type="PackedScene" uid="uid://dtakg3q1hgwnj" path="res://Scenes/LockedDoor/locked_door.tscn" id="6_elpgg"]
+[ext_resource type="Texture2D" uid="uid://cprw8mck81j7f" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/Eskimo/SpriteSheet.png" id="7_njm7v"]
 [ext_resource type="PackedScene" uid="uid://uq2x71y3mrvf" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="7_ohrk8"]
+[ext_resource type="Texture2D" uid="uid://cs5mt5kk88mpi" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/Eskimo/Faceset.png" id="8_bkvnf"]
 [ext_resource type="PackedScene" uid="uid://cwd2rsvu0o7n0" path="res://Scenes/PuzzleButton/single_use_puzzle_button.tscn" id="9_g3lhp"]
 [ext_resource type="PackedScene" uid="uid://c0yw3vskqj4go" path="res://Scenes/Block/ice_block.tscn" id="10_dc78n"]
 [ext_resource type="PackedScene" uid="uid://drx2rqs0fhxir" path="res://Scenes/NPC/npc.tscn" id="11_dc78n"]
@@ -781,6 +783,10 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_kr7le")
 sources/0 = SubResource("TileSetAtlasSource_12ovb")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpdpv"]
+atlas = ExtResource("7_njm7v")
+region = Rect2(0, 0, 16.321976, 17.739887)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3lhp"]
 size = Vector2(45.75, 11.25)
 
@@ -812,6 +818,7 @@ tile_set = SubResource("TileSet_l6yvh")
 [node name="Player" parent="ObstackleLayer" instance=ExtResource("1_2p8i2")]
 position = Vector2(-87, 20)
 motion_mode = 1
+move_speed = 100.0
 push_strength = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="ObstackleLayer/Player"]
@@ -822,6 +829,19 @@ zoom = Vector2(5, 5)
 position = Vector2(2, 71)
 
 [node name="NPC2" parent="ObstackleLayer" instance=ExtResource("11_dc78n")]
+position = Vector2(37, 47)
+
+[node name="Sprite2D" parent="ObstackleLayer/NPC2" index="0"]
+texture = SubResource("AtlasTexture_rpdpv")
+
+[node name="CollisionShape2D" parent="ObstackleLayer/NPC2" index="1"]
+visible = false
+
+[node name="Face" parent="ObstackleLayer/NPC2/CanvasLayer/Dialog" index="0"]
+texture = ExtResource("8_bkvnf")
+
+[node name="Label" parent="ObstackleLayer/NPC2/CanvasLayer" index="1"]
+text = "Cave is in the east!"
 
 [node name="LockedDoor" parent="." instance=ExtResource("6_elpgg")]
 position = Vector2(-62, 21)
