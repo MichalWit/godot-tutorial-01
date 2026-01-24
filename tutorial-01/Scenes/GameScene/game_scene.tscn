@@ -779,6 +779,8 @@ texture = ExtResource("2_04h35")
 0:2/size_in_atlas = Vector2i(4, 3)
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 4, 32, 4, 32, 24, -32, 24)
+18:9/0 = 0
+18:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
 
 [sub_resource type="TileSet" id="TileSet_l6yvh"]
 physics_layer_0/collision_layer = 1
@@ -817,7 +819,7 @@ position = Vector2(-26, 38)
 
 [node name="ObstackleLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-position = Vector2(26, 18)
+position = Vector2(16, 16)
 tile_map_data = PackedByteArray("AAD5//z/AQAAAAIAAAD6//r/AQAAAAIAAAD+//n/AQAAAAIAAAD2//v/AQAAAAIAAAD2//3/AQAAAAIAAAACAP7/AQAAAAIAAAADAPz/AQAAAAIAAAAFAP//AQAAAAIAAAACAAAAAQAAAAIAAAD6/wAAAAAAAAcAAAD+//7/AQACAAAAAAA=")
 tile_set = SubResource("TileSet_l6yvh")
 
@@ -836,7 +838,7 @@ limit_right = 240
 limit_bottom = 160
 
 [node name="Warrior" parent="ObstackleLayer" instance=ExtResource("11_dc78n")]
-position = Vector2(2, 71)
+position = Vector2(12, 75)
 
 [node name="Eskimo" parent="ObstackleLayer" instance=ExtResource("11_dc78n")]
 position = Vector2(37, 47)
@@ -857,21 +859,21 @@ text = "Hi!"
 [node name="Name" parent="ObstackleLayer/Eskimo/CanvasLayer" index="2"]
 text = "Eskimo"
 
-[node name="Monk" parent="." instance=ExtResource("11_dc78n")]
-position = Vector2(-22, 75)
+[node name="Monk" parent="ObstackleLayer" instance=ExtResource("11_dc78n")]
+position = Vector2(-38, 59)
 dialogue_lines = Array[String](["Hello! Monk", "Hi! Monk", "Howdy! Monk"])
 
-[node name="Sprite2D" parent="Monk" index="0"]
+[node name="Sprite2D" parent="ObstackleLayer/Monk" index="0"]
 texture = SubResource("AtlasTexture_jaj74")
 
-[node name="Face" parent="Monk/CanvasLayer/DialogUI" index="0"]
+[node name="Face" parent="ObstackleLayer/Monk/CanvasLayer/DialogUI" index="0"]
 texture = ExtResource("10_6dkqd")
 
 [node name="LockedDoor" parent="." instance=ExtResource("6_elpgg")]
-position = Vector2(-62, 21)
+position = Vector2(-73, 19)
 
 [node name="SceneEntrance" parent="." instance=ExtResource("5_oi8ly")]
-position = Vector2(-60, -25)
+position = Vector2(-71, -26)
 player_spawn_position = Vector2(-87, 20)
 
 [node name="Block" parent="." instance=ExtResource("6_12ovb")]
@@ -911,4 +913,4 @@ shape = SubResource("RectangleShape2D_6qy3m")
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
 
 [editable path="ObstackleLayer/Eskimo"]
-[editable path="Monk"]
+[editable path="ObstackleLayer/Monk"]
