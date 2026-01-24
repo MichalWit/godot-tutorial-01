@@ -837,11 +837,14 @@ texture = SubResource("AtlasTexture_rpdpv")
 [node name="CollisionShape2D" parent="ObstackleLayer/Eskimo" index="1"]
 visible = false
 
-[node name="Face" parent="ObstackleLayer/Eskimo/CanvasLayer/Dialog" index="0"]
+[node name="Face" parent="ObstackleLayer/Eskimo/CanvasLayer/DialogUI" index="0"]
 texture = ExtResource("8_bkvnf")
 
-[node name="Label" parent="ObstackleLayer/Eskimo/CanvasLayer" index="1"]
-text = "Cave is in the east!"
+[node name="Dialog" parent="ObstackleLayer/Eskimo/CanvasLayer" index="1"]
+text = "Hi!"
+
+[node name="Name" parent="ObstackleLayer/Eskimo/CanvasLayer" index="2"]
+text = "Eskimo"
 
 [node name="LockedDoor" parent="." instance=ExtResource("6_elpgg")]
 position = Vector2(-62, 21)
