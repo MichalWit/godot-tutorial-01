@@ -12,3 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and can_interact:
 		$CanvasLayer.visible = !$CanvasLayer.visible
+		if $CanvasLayer.visible:
+			get_tree().paused = true
+		else:
+			get_tree().paused = false

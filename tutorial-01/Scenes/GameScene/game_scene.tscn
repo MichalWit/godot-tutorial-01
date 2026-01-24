@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://imbavgi1tubs"]
+[gd_scene load_steps=26 format=4 uid="uid://imbavgi1tubs"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://d1ahb83e2auyd" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_04h35"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://uq2x71y3mrvf" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="7_ohrk8"]
 [ext_resource type="Texture2D" uid="uid://cs5mt5kk88mpi" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/Eskimo/Faceset.png" id="8_bkvnf"]
 [ext_resource type="PackedScene" uid="uid://cwd2rsvu0o7n0" path="res://Scenes/PuzzleButton/single_use_puzzle_button.tscn" id="9_g3lhp"]
+[ext_resource type="Texture2D" uid="uid://c8fulafqiowlp" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/Monk/SpriteSheet.png" id="9_rpdpv"]
+[ext_resource type="Texture2D" uid="uid://dyj78oywmoblc" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/Monk/Faceset.png" id="10_6dkqd"]
 [ext_resource type="PackedScene" uid="uid://c0yw3vskqj4go" path="res://Scenes/Block/ice_block.tscn" id="10_dc78n"]
 [ext_resource type="PackedScene" uid="uid://drx2rqs0fhxir" path="res://Scenes/NPC/npc.tscn" id="11_dc78n"]
 
@@ -787,6 +789,10 @@ sources/0 = SubResource("TileSetAtlasSource_12ovb")
 atlas = ExtResource("7_njm7v")
 region = Rect2(0, 0, 16.321976, 17.739887)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jaj74"]
+atlas = ExtResource("9_rpdpv")
+region = Rect2(0, 0, 16.321976, 17.739887)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3lhp"]
 size = Vector2(45.75, 11.25)
 
@@ -846,6 +852,15 @@ text = "Hi!"
 [node name="Name" parent="ObstackleLayer/Eskimo/CanvasLayer" index="2"]
 text = "Eskimo"
 
+[node name="NPC" parent="." instance=ExtResource("11_dc78n")]
+position = Vector2(-22, 75)
+
+[node name="Sprite2D" parent="NPC" index="0"]
+texture = SubResource("AtlasTexture_jaj74")
+
+[node name="Face" parent="NPC/CanvasLayer/DialogUI" index="0"]
+texture = ExtResource("10_6dkqd")
+
 [node name="LockedDoor" parent="." instance=ExtResource("6_elpgg")]
 position = Vector2(-62, 21)
 
@@ -890,3 +905,4 @@ shape = SubResource("RectangleShape2D_6qy3m")
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
 
 [editable path="ObstackleLayer/Eskimo"]
+[editable path="NPC"]
