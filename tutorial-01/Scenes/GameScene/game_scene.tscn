@@ -821,6 +821,8 @@ zoom = Vector2(5, 5)
 [node name="NPC" parent="ObstackleLayer" instance=ExtResource("11_dc78n")]
 position = Vector2(2, 71)
 
+[node name="NPC2" parent="ObstackleLayer" instance=ExtResource("11_dc78n")]
+
 [node name="LockedDoor" parent="." instance=ExtResource("6_elpgg")]
 position = Vector2(-62, 21)
 
@@ -863,3 +865,5 @@ shape = SubResource("RectangleShape2D_6qy3m")
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
+
+[editable path="ObstackleLayer/NPC2"]
