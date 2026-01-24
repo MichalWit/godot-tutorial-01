@@ -836,6 +836,7 @@ position = Vector2(2, 71)
 
 [node name="Eskimo" parent="ObstackleLayer" instance=ExtResource("11_dc78n")]
 position = Vector2(37, 47)
+dialogue_lines = Array[String](["Hello! 1", "Hi! 2 ", "Howdy! 3 "])
 
 [node name="Sprite2D" parent="ObstackleLayer/Eskimo" index="0"]
 texture = SubResource("AtlasTexture_rpdpv")
@@ -852,13 +853,14 @@ text = "Hi!"
 [node name="Name" parent="ObstackleLayer/Eskimo/CanvasLayer" index="2"]
 text = "Eskimo"
 
-[node name="NPC" parent="." instance=ExtResource("11_dc78n")]
+[node name="Monk" parent="." instance=ExtResource("11_dc78n")]
 position = Vector2(-22, 75)
+dialogue_lines = Array[String](["Hello! Monk", "Hi! Monk", "Howdy! Monk"])
 
-[node name="Sprite2D" parent="NPC" index="0"]
+[node name="Sprite2D" parent="Monk" index="0"]
 texture = SubResource("AtlasTexture_jaj74")
 
-[node name="Face" parent="NPC/CanvasLayer/DialogUI" index="0"]
+[node name="Face" parent="Monk/CanvasLayer/DialogUI" index="0"]
 texture = ExtResource("10_6dkqd")
 
 [node name="LockedDoor" parent="." instance=ExtResource("6_elpgg")]
@@ -905,4 +907,4 @@ shape = SubResource("RectangleShape2D_6qy3m")
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
 
 [editable path="ObstackleLayer/Eskimo"]
-[editable path="NPC"]
+[editable path="Monk"]

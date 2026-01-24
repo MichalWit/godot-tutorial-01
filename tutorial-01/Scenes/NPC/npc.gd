@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var can_interact: bool = false
-var dialogue_lines: Array[String] = ["Hello!", "Hi!", "Howdy!"]
+@export var dialogue_lines: Array[String] = ["Hello!", "Hi!", "Howdy!"]
 var dialogue_index = 0
 
 # Called when the node enters the scene tree for the first time.
