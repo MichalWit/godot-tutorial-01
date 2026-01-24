@@ -830,6 +830,10 @@ push_strength = 200.0
 [node name="Camera2D" type="Camera2D" parent="ObstackleLayer/Player"]
 position = Vector2(1, 9)
 zoom = Vector2(5, 5)
+limit_left = -192
+limit_top = -96
+limit_right = 240
+limit_bottom = 160
 
 [node name="Warrior" parent="ObstackleLayer" instance=ExtResource("11_dc78n")]
 position = Vector2(2, 71)
