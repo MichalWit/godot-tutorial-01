@@ -44,6 +44,3 @@ shape = SubResource("RectangleShape2D_c5yrt")
 sprite_frames = SubResource("SpriteFrames_xbken")
 animation = &"on"
 autoplay = "off"
-
-[connection signal="switch_off" from="." to="." method="_on_switch_off"]
-[connection signal="switch_on" from="." to="." method="_on_switch_on"]
