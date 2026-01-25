@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://imbavgi1tubs"]
+[gd_scene load_steps=28 format=4 uid="uid://imbavgi1tubs"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://d1ahb83e2auyd" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_04h35"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dyj78oywmoblc" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/Monk/Faceset.png" id="10_6dkqd"]
 [ext_resource type="PackedScene" uid="uid://c0yw3vskqj4go" path="res://Scenes/Block/ice_block.tscn" id="10_dc78n"]
 [ext_resource type="PackedScene" uid="uid://drx2rqs0fhxir" path="res://Scenes/NPC/npc.tscn" id="11_dc78n"]
+[ext_resource type="PackedScene" uid="uid://h4k15xuamdfd" path="res://Scenes/TreasureChest/treasure_chest.tscn" id="12_jaj74"]
 [ext_resource type="PackedScene" uid="uid://ckejbtevfc2q1" path="res://Scenes/Switch/switch.tscn" id="16_6dkqd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
@@ -872,6 +873,9 @@ texture = ExtResource("10_6dkqd")
 
 [node name="Switch" parent="ObstackleLayer" instance=ExtResource("16_6dkqd")]
 position = Vector2(-3, -49)
+
+[node name="TreasureChest" parent="ObstackleLayer" instance=ExtResource("12_jaj74")]
+position = Vector2(-61, -23)
 
 [node name="LockedDoor" parent="." instance=ExtResource("6_elpgg")]
 position = Vector2(-73, 19)
