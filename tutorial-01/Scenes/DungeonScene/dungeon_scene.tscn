@@ -887,6 +887,9 @@ position = Vector2(13, 13)
 [node name="Switch4" parent="SwitchPuzzle" instance=ExtResource("10_u35dq")]
 position = Vector2(33, 12)
 
+[node name="SwitchPuzzleDoor" parent="." instance=ExtResource("7_n5fck")]
+position = Vector2(-4, 104)
+
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
 [connection signal="pressed" from="PuzzleButton2" to="LockedDoor" method="_on_puzzle_button_pressed"]
@@ -895,6 +898,8 @@ position = Vector2(33, 12)
 [connection signal="unpressed" from="PuzzleButton3" to="LockedDoor2" method="_on_puzzle_button_unpressed"]
 [connection signal="switch_off" from="Switch" to="SecretWallLayer" method="_on_switch_switch_off"]
 [connection signal="switch_on" from="Switch" to="SecretWallLayer" method="_on_switch_switch_on"]
+[connection signal="solved" from="SwitchPuzzle" to="SwitchPuzzleDoor" method="__open_door"]
+[connection signal="unresolved" from="SwitchPuzzle" to="SwitchPuzzleDoor" method="__close_door"]
 [connection signal="switch_off" from="SwitchPuzzle/Switch" to="SwitchPuzzle" method="inc"]
 [connection signal="switch_on" from="SwitchPuzzle/Switch" to="SwitchPuzzle" method="dec"]
 [connection signal="switch_off" from="SwitchPuzzle/Switch2" to="SwitchPuzzle" method="dec"]
