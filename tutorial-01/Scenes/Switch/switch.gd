@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+class_name Switch
+
 signal switch_on
 signal switch_off
 
