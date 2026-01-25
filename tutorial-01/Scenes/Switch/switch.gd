@@ -13,8 +13,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and can_interact:
 		if on:
 			__turn_off()
+			print("turned OFF")
 		else:
 			__turn_on()
+			print("turned ON")
 
 func __turn_on() -> void:
 	on = true

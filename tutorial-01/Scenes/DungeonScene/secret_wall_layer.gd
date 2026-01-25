@@ -1,5 +1,8 @@
 extends TileMapLayer
 
+func _ready() -> void:
+	__enable_secret_wall()
+	
 func _on_switch_switch_off() -> void:
 	__enable_secret_wall()
 
