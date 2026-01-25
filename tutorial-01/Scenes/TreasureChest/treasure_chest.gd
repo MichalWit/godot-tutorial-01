@@ -2,6 +2,7 @@ extends StaticBody2D
 
 var closed: bool = true
 var can_interact: bool = true
+var collected: bool = false
 
 func _ready() -> void:
 	$Scroll.hide()
@@ -17,8 +18,10 @@ func _process(delta: float) -> void:
 func open() -> void:
 	$AnimatedSprite2D.play("open")
 	$Timer.start()
-	$Scroll.show()
+	if !collected:
+		$Scroll.show()
 	closed = false
+	collected = true
 			
 func close() -> void:
 	$AnimatedSprite2D.play("closed")

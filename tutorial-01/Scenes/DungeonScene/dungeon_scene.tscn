@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cny2klbe27tcy"]
+[gd_scene load_steps=17 format=4 uid="uid://cny2klbe27tcy"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_xuufh"]
 [ext_resource type="PackedScene" uid="uid://6rv2tqkdepbs" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="3_6f4q3"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c0yw3vskqj4go" path="res://Scenes/Block/ice_block.tscn" id="8_odg1s"]
 [ext_resource type="PackedScene" uid="uid://ckejbtevfc2q1" path="res://Scenes/Switch/switch.tscn" id="10_u35dq"]
 [ext_resource type="PackedScene" uid="uid://b2gutne42b4j7" path="res://Scenes/SwitchPuzzle/switch_puzzle.tscn" id="11_nqymn"]
+[ext_resource type="PackedScene" uid="uid://h4k15xuamdfd" path="res://Scenes/TreasureChest/treasure_chest.tscn" id="12_g75ix"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_102mq"]
 texture = ExtResource("4_6f4q3")
@@ -889,6 +890,9 @@ position = Vector2(33, 12)
 
 [node name="SwitchPuzzleDoor" parent="." instance=ExtResource("7_n5fck")]
 position = Vector2(-4, 104)
+
+[node name="TreasureChest" parent="." instance=ExtResource("12_g75ix")]
+position = Vector2(63, 133)
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
