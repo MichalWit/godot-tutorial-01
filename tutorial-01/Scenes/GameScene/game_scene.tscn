@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://imbavgi1tubs"]
+[gd_scene load_steps=29 format=4 uid="uid://imbavgi1tubs"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://d1ahb83e2auyd" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_04h35"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://drx2rqs0fhxir" path="res://Scenes/NPC/npc.tscn" id="11_dc78n"]
 [ext_resource type="PackedScene" uid="uid://h4k15xuamdfd" path="res://Scenes/TreasureChest/treasure_chest.tscn" id="12_jaj74"]
 [ext_resource type="PackedScene" uid="uid://ckejbtevfc2q1" path="res://Scenes/Switch/switch.tscn" id="16_6dkqd"]
+[ext_resource type="AudioStream" uid="uid://cg25mgxpy3t18" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Audio/Musics/4 - Village.ogg" id="18_pyj2o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("2_l6yvh")
@@ -828,7 +829,6 @@ tile_set = SubResource("TileSet_l6yvh")
 [node name="Player" parent="ObstackleLayer" instance=ExtResource("1_2p8i2")]
 position = Vector2(-87, 20)
 motion_mode = 1
-move_speed = 100.0
 push_strength = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="ObstackleLayer/Player"]
@@ -916,6 +916,12 @@ shape = SubResource("RectangleShape2D_dc78n")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="PuzzleWalls"]
 position = Vector2(-42, 40)
 shape = SubResource("RectangleShape2D_6qy3m")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_pyj2o")
+volume_db = -41.084
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]

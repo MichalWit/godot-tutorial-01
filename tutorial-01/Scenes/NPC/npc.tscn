@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://drx2rqs0fhxir"]
+[gd_scene load_steps=9 format=3 uid="uid://drx2rqs0fhxir"]
 
 [ext_resource type="Texture2D" uid="uid://ddv72jadawsox" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/FighterRed/SpriteSheet.png" id="1_3am0f"]
 [ext_resource type="Script" uid="uid://dlrqrxfeebphc" path="res://Scenes/NPC/npc.gd" id="1_bjna2"]
 [ext_resource type="Texture2D" uid="uid://d02cgh0qf7hv8" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_0s07e"]
 [ext_resource type="Texture2D" uid="uid://ffxptmfae2yi" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/FighterRed/Faceset.png" id="4_aqj1y"]
+[ext_resource type="AudioStream" uid="uid://dwn5u40d8jtex" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Impact2.wav" id="5_n8r46"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjna2"]
 atlas = ExtResource("1_3am0f")
@@ -60,3 +61,7 @@ offset_top = 420.0
 offset_right = 248.0
 offset_bottom = 444.0
 text = "Warrior"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_n8r46")
+volume_db = -33.143
