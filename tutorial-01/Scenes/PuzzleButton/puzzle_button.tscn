@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://uq2x71y3mrvf"]
+[gd_scene load_steps=9 format=3 uid="uid://uq2x71y3mrvf"]
 
 [ext_resource type="Texture2D" uid="uid://bs1gqhvschoqq" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="1_4jafl"]
 [ext_resource type="Script" uid="uid://p0x8i51y2ej2" path="res://Scenes/PuzzleButton/puzzle_button.gd" id="1_dls00"]
+[ext_resource type="AudioStream" uid="uid://bijfhccu7xjgb" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Hit8.wav" id="3_n7725"]
+[ext_resource type="AudioStream" uid="uid://p372r3wde6v0" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Hit2.wav" id="4_7ang4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c66ud"]
 size = Vector2(16, 16)
@@ -46,6 +48,14 @@ sprite_frames = SubResource("SpriteFrames_n7725")
 animation = &"unpressed"
 autoplay = "unpressed"
 frame_progress = 0.35763106
+
+[node name="AudioPressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_n7725")
+volume_db = -36.15
+
+[node name="AudioReleased" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7ang4")
+volume_db = -34.204
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -9,6 +9,7 @@
 		bodies_on_top += 1
 		if body.is_in_group("pushable") or body is Player:
 			if bodies_on_top == 1:
+				$AudioPressed.play()
 				print("pressed")
 				$AnimatedSprite2D.play("pressed")
 				pressed.emit()
@@ -27,6 +28,7 @@ class MultiUsePuzzleButton extends BasePuzzleButton:
 		bodies_on_top -= 1
 		if body.is_in_group("pushable") or body is Player:
 			if bodies_on_top == 0:
+				$AudioReleased.play()
 				print("unpressed")
 				$AnimatedSprite2D.play("unpressed")
 				unpressed.emit()
@@ -35,4 +37,4 @@ class MultiUsePuzzleButton extends BasePuzzleButton:
 class SingleUsePuzzleButton extends BasePuzzleButton:
 	
 	func process_exited(body: Node2D) -> void:
-		print("SingleUsePuzzleButton.process_exited")
+		$AudioReleased.play()
