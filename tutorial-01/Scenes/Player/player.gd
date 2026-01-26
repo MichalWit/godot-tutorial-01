@@ -64,3 +64,7 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("interactable"):
 		print("collider.can_interact = false")
 		body.can_interact = false
+
+
+func _on_hitbox_area_2d_body_entered(body: Node2D) -> void:
+	get_tree().reload_current_scene()
