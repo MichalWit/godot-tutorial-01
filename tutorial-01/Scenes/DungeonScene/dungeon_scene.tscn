@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_xuufh"]
 [ext_resource type="PackedScene" uid="uid://6rv2tqkdepbs" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="3_6f4q3"]
-[ext_resource type="Script" uid="uid://w0amltj3g2lp" path="res://Scenes/DungeonScene/secret_wall_layer.gd" id="3_n5fck"]
+[ext_resource type="Script" path="res://Scenes/DungeonScene/secret_wall_layer.gd" id="3_n5fck"]
 [ext_resource type="Texture2D" uid="uid://bw877i24l5ful" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="3_sx8ki"]
 [ext_resource type="Texture2D" uid="uid://dp7f47tcblx5d" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetInteriorFloor.png" id="4_6f4q3"]
 [ext_resource type="PackedScene" uid="uid://uq2x71y3mrvf" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="5_8ho00"]
@@ -891,7 +891,7 @@ position = Vector2(33, 12)
 [node name="SwitchPuzzleDoor" parent="." instance=ExtResource("7_n5fck")]
 position = Vector2(-4, 104)
 
-[node name="TreasureChest" parent="." instance=ExtResource("12_g75ix")]
+[node name="TreasureChestInDungeon" parent="." instance=ExtResource("12_g75ix")]
 position = Vector2(63, 133)
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]

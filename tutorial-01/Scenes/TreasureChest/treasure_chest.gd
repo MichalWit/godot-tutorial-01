@@ -6,6 +6,9 @@ var collected: bool = false
 
 func _ready() -> void:
 	$Scroll.hide()
+	if SceneManager.is_open(name):
+		$AnimatedSprite2D.play("open")
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -22,12 +25,14 @@ func open() -> void:
 		$Scroll.show()
 	closed = false
 	collected = true
+	SceneManager.open_chest(name)
 			
 func close() -> void:
 	$AnimatedSprite2D.play("closed")
 	$Scroll.hide()
 	$Timer.stop()
 	closed = true
+	SceneManager.close_chest(name)
 
 
 func _on_timer_timeout() -> void:
