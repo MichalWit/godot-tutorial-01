@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://imbavgi1tubs"]
+[gd_scene load_steps=30 format=4 uid="uid://imbavgi1tubs"]
 
 [ext_resource type="PackedScene" uid="uid://dg5qpa0rgx766" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://d1ahb83e2auyd" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_04h35"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://h4k15xuamdfd" path="res://Scenes/TreasureChest/treasure_chest.tscn" id="12_jaj74"]
 [ext_resource type="PackedScene" uid="uid://ckejbtevfc2q1" path="res://Scenes/Switch/switch.tscn" id="16_6dkqd"]
 [ext_resource type="AudioStream" uid="uid://cg25mgxpy3t18" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Audio/Musics/4 - Village.ogg" id="18_pyj2o"]
+[ext_resource type="Script" uid="uid://bev3w3kodivbs" path="res://Scenes/GameScene/audio_stream_player.gd" id="19_coono"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("2_l6yvh")
@@ -922,6 +923,7 @@ stream = ExtResource("18_pyj2o")
 volume_db = -41.084
 autoplay = true
 parameters/looping = true
+script = ExtResource("19_coono")
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
