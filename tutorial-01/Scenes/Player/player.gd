@@ -67,4 +67,10 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 
 
 func _on_hitbox_area_2d_body_entered(body: Node2D) -> void:
+	SceneManager.player_hp -= 1
+	if SceneManager.player_hp <= 0:
+		die()
+
+func die() -> void:
+	SceneManager.player_hp = 3
 	get_tree().call_deferred("reload_current_scene")
