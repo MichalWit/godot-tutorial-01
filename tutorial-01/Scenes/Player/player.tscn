@@ -153,7 +153,6 @@ font_size = 40
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_a3d8c")
-move_speed = null
 push_strength = 150.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

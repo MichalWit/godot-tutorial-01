@@ -2,13 +2,14 @@ extends Node2D
 
 var player_spawn_position: Vector2
 var opened_chests_ids: Array[String] = []
+var collected_chests_names: Array[String] = []
 
 func open_chest(chest_name: String) -> void:
-	print("opening chest: " + chest_name)
+	if !collected_chests_names.has(chest_name):
+		collected_chests_names.append(chest_name)
 	var index = __find_index(chest_name)
 	if index < 0:
 		opened_chests_ids.append(chest_name)
-	print("Opened chests: " + str(opened_chests_ids))
 
 func close_chest(chest_name: String) -> void:
 	var index = __find_index(chest_name)

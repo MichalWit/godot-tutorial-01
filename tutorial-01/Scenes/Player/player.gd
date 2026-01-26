@@ -14,6 +14,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	__move_player()
 	__handle_collision()
+	
+	%TreasureLabel.text = str(SceneManager.collected_chests_names.size())
+	
 	move_and_slide()
 	
 	
