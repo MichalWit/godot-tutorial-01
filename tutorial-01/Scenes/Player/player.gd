@@ -7,7 +7,9 @@ class_name Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	position = SceneManager.player_spawn_position
+	__update_health_animation()
+	if SceneManager.position != Vector2(0,0):
+		position = SceneManager.player_spawn_position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -67,9 +69,21 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 
 
 func _on_hitbox_area_2d_body_entered(body: Node2D) -> void:
-	SceneManager.player_hp -= 1
+	take_hit()
 	if SceneManager.player_hp <= 0:
 		die()
+
+func take_hit() -> void:
+	SceneManager.player_hp -= 1
+	__update_health_animation()
+
+func __update_health_animation() -> void:
+	if SceneManager.player_hp == 3:
+		$CanvasLayer/HealthAnimation.play("3")
+	elif SceneManager.player_hp == 2:
+		$CanvasLayer/HealthAnimation.play("2")
+	elif SceneManager.player_hp == 1:
+		$CanvasLayer/HealthAnimation.play("1")
 
 func die() -> void:
 	SceneManager.player_hp = 3
