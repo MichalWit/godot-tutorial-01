@@ -67,4 +67,4 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 
 
 func _on_hitbox_area_2d_body_entered(body: Node2D) -> void:
-	get_tree().reload_current_scene()
+	get_tree().call_deferred("reload_current_scene")
