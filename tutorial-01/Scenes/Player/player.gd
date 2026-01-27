@@ -3,9 +3,9 @@ extends CharacterBody2D
 class_name Player
 
 enum Direction {
-	UP, DOWN, LEFT, RIGHT
+	UP, DOWN, LEFT, RIGHT, NONE
 }
-var direction: Direction
+var direction: Direction = Direction.NONE
 
 var is_attacking: bool = false
 
@@ -14,7 +14,6 @@ var is_attacking: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	direction = Direction.DOWN
 	__hide_sword()
 	
 	__update_health_animation()
@@ -54,29 +53,40 @@ func __handle_collision() -> void:
 		if collider.is_in_group("wall"):
 			print("wall")
 
-
-func __move_player() -> void:
+func __set_direction():
 	var move_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = move_vector * move_speed
 	
 	if velocity.x > 0 :
 		direction = Direction.RIGHT
-		$AnimatedSprite2D.play("move_right")
-		$InteractionArea.position = Vector2(8, -8)
 	elif velocity.x < 0 :
 		direction = Direction.LEFT
-		$AnimatedSprite2D.play("move_left")
-		$InteractionArea.position = Vector2(-8, -8)
 	elif velocity.y > 0 :
 		direction = Direction.DOWN
-		$AnimatedSprite2D.play("move_down")
-		$InteractionArea.position = Vector2(0, 0)
 	elif velocity.y < 0 :
 		direction = Direction.UP
-		$AnimatedSprite2D.play("move_up")
-		$InteractionArea.position = Vector2(0, -16)
-	else: #velocity == Vector2(0,0)
-		$AnimatedSprite2D.stop()
+	else:
+		direction = Direction.NONE
+
+func __move_player() -> void:
+	
+	__set_direction()
+	
+	match direction:
+		Direction.RIGHT:
+			$AnimatedSprite2D.play("move_right")
+			$InteractionArea.position = Vector2(8, -8)
+		Direction.LEFT:
+			$AnimatedSprite2D.play("move_left")
+			$InteractionArea.position = Vector2(-8, -8)
+		Direction.DOWN:
+			$AnimatedSprite2D.play("move_down")
+			$InteractionArea.position = Vector2(0, 0)
+		Direction.UP:
+			$AnimatedSprite2D.play("move_up")
+			$InteractionArea.position = Vector2(0, -16)
+		Direction.NONE:
+			$AnimatedSprite2D.stop()
 
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
@@ -115,10 +125,10 @@ func die() -> void:
 	get_tree().call_deferred("reload_current_scene")
 	
 func attack() -> void:
+	is_attacking = true
 	__show_sword()
 	__play_attack_animation()
 	$AttackDurationTimer.start()
-	is_attacking = true
 	
 func __play_attack_animation():
 	match direction:
@@ -130,6 +140,8 @@ func __play_attack_animation():
 			$AnimatedSprite2D.play("attack_down")
 		Direction.UP:
 			$AnimatedSprite2D.play("attack_up")
+		Direction.NONE:
+			pass
 
 func __show_sword():
 	$Sword.visible = true
