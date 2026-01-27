@@ -2,4 +2,4 @@ extends Timer
 
 func _ready() -> void:
 	one_shot = true
-	wait_time = 0.1
+	wait_time = 0.2

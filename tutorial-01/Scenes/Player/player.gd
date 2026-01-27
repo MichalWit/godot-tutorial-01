@@ -3,10 +3,10 @@ extends CharacterBody2D
 class_name Player
 
 enum Direction {
-	UP, DOWN, LEFT, RIGHT, NONE
+	UP, DOWN, LEFT, RIGHT
 }
-var direction: Direction = Direction.NONE
-
+var direction: Direction = Direction.DOWN
+var is_moving: bool = false
 var is_attacking: bool = false
 
 @export var move_speed: float = 100
@@ -23,9 +23,6 @@ func _ready() -> void:
 	var timer = get_node("AttackDurationTimer")
 	timer.timeout.connect(_on_attack_timeout)
 
-func _on_attack_timeout() -> void:
-	__hide_sword()
-	is_attacking = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -59,34 +56,34 @@ func __set_direction():
 	
 	if velocity.x > 0 :
 		direction = Direction.RIGHT
+		is_moving = true
 	elif velocity.x < 0 :
 		direction = Direction.LEFT
+		is_moving = true
 	elif velocity.y > 0 :
 		direction = Direction.DOWN
+		is_moving = true
 	elif velocity.y < 0 :
 		direction = Direction.UP
+		is_moving = true
 	else:
-		direction = Direction.NONE
+		is_moving = false
 
 func __move_player() -> void:
-	
 	__set_direction()
+	__play_move_animation()
+	__set_interaction_area()
 	
+func __set_interaction_area():
 	match direction:
 		Direction.RIGHT:
-			$AnimatedSprite2D.play("move_right")
 			$InteractionArea.position = Vector2(8, -8)
 		Direction.LEFT:
-			$AnimatedSprite2D.play("move_left")
 			$InteractionArea.position = Vector2(-8, -8)
 		Direction.DOWN:
-			$AnimatedSprite2D.play("move_down")
 			$InteractionArea.position = Vector2(0, 0)
 		Direction.UP:
-			$AnimatedSprite2D.play("move_up")
 			$InteractionArea.position = Vector2(0, -16)
-		Direction.NONE:
-			$AnimatedSprite2D.stop()
 
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
@@ -130,17 +127,44 @@ func attack() -> void:
 	__play_attack_animation()
 	$AttackDurationTimer.start()
 	
+	
+func _on_attack_timeout() -> void:
+	__hide_sword()
+	is_attacking = false
+	is_moving = true
+	__play_move_animation()
+	
+	
+func __play_move_animation():
+	if is_moving:
+		match direction:
+			Direction.RIGHT:
+				$AnimatedSprite2D.play("move_right")
+			Direction.LEFT:
+				$AnimatedSprite2D.play("move_left")
+			Direction.DOWN:
+				$AnimatedSprite2D.play("move_down")
+			Direction.UP:
+				$AnimatedSprite2D.play("move_up")
+			
+	if not is_moving:
+		$AnimatedSprite2D.stop()
+	
+	
 func __play_attack_animation():
 	match direction:
 		Direction.RIGHT:
+			print("right")
 			$AnimatedSprite2D.play("attack_right")
 		Direction.LEFT:
+			print("left")
 			$AnimatedSprite2D.play("attack_left")
 		Direction.DOWN:
 			$AnimatedSprite2D.play("attack_down")
+			print("down")
 		Direction.UP:
 			$AnimatedSprite2D.play("attack_up")
-		Direction.NONE:
+			print("up")
 			pass
 
 func __show_sword():
