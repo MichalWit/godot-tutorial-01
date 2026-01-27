@@ -154,18 +154,17 @@ func __play_move_animation():
 func __play_attack_animation():
 	match direction:
 		Direction.RIGHT:
-			print("right")
+			$SwordAnimationPlayer.play("attack_right")
 			$AnimatedSprite2D.play("attack_right")
 		Direction.LEFT:
-			print("left")
+			$SwordAnimationPlayer.play("attack_left")
 			$AnimatedSprite2D.play("attack_left")
 		Direction.DOWN:
+			$SwordAnimationPlayer.play("attack_down")
 			$AnimatedSprite2D.play("attack_down")
-			print("down")
 		Direction.UP:
+			$SwordAnimationPlayer.play("attack_up")
 			$AnimatedSprite2D.play("attack_up")
-			print("up")
-			pass
 
 func __show_sword():
 	$Sword.visible = true
