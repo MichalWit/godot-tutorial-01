@@ -7,15 +7,25 @@ class_name Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	__hide_sword()
+	
 	__update_health_animation()
 	if SceneManager.position != Vector2(0,0):
 		position = SceneManager.player_spawn_position
+		
+	var timer = get_node("AttackDurationTimer")
+	timer.timeout.connect(_on_attack_timeout)
 
+func _on_attack_timeout() -> void:
+	__hide_sword()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	__move_player()
 	__handle_collision()
+	
+	if Input.is_action_just_pressed("interact"):
+		attack()
 	
 	%TreasureLabel.text = str(SceneManager.collected_chests_names.size())
 	
@@ -88,7 +98,18 @@ func __update_health_animation() -> void:
 func die() -> void:
 	SceneManager.player_hp = 3
 	get_tree().call_deferred("reload_current_scene")
+	
+func attack() -> void:
+	__show_sword()
+	$AttackDurationTimer.start()
 
+func __show_sword():
+	$Sword.visible = true
+	$Sword/SwordArea2D.monitoring = true
+
+func __hide_sword():
+	$Sword.visible = false
+	$Sword/SwordArea2D.monitoring = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.

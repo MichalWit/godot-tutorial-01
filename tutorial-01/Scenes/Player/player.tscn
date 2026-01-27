@@ -1,10 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://dg5qpa0rgx766"]
+[gd_scene load_steps=33 format=3 uid="uid://dg5qpa0rgx766"]
 
 [ext_resource type="Script" uid="uid://doakrl6v2tdj4" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://crvcmh3pp87wa" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/Caveman/SeparateAnim/Walk.png" id="2_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://b72ecmntcmp5r" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Items/Scroll/ScrollEmpty.png" id="3_xpcdj"]
 [ext_resource type="Texture2D" uid="uid://bhjyu0seq05m8" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Ui/Receptacle/Heart2.png" id="4_mtuoh"]
 [ext_resource type="Texture2D" uid="uid://ph7uae3t0uio" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Items/Weapons/BigSword/Sprite.png" id="5_htcer"]
+[ext_resource type="Script" uid="uid://ci8prftkvax18" path="res://Scenes/Player/attack_duration_timer.gd" id="6_dd0ac"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpcdj"]
 atlas = ExtResource("2_a3d8c")
@@ -269,6 +270,9 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/SwordArea2D"]
 position = Vector2(0, -3.25)
 shape = SubResource("RectangleShape2D_dd0ac")
+
+[node name="AttackDurationTimer" type="Timer" parent="."]
+script = ExtResource("6_dd0ac")
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
