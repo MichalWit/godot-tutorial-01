@@ -2,11 +2,19 @@ extends CharacterBody2D
 
 class_name Player
 
+enum Direction {
+	UP, DOWN, LEFT, RIGHT
+}
+var direction: Direction
+
+var is_attacking: bool = false
+
 @export var move_speed: float = 100
 @export var push_strength: float = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	direction = Direction.DOWN
 	__hide_sword()
 	
 	__update_health_animation()
@@ -18,10 +26,13 @@ func _ready() -> void:
 
 func _on_attack_timeout() -> void:
 	__hide_sword()
+	is_attacking = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	__move_player()
+	if not is_attacking:
+		__move_player()
+	
 	__handle_collision()
 	
 	if Input.is_action_just_pressed("interact"):
@@ -49,15 +60,19 @@ func __move_player() -> void:
 	velocity = move_vector * move_speed
 	
 	if velocity.x > 0 :
+		direction = Direction.RIGHT
 		$AnimatedSprite2D.play("move_right")
 		$InteractionArea.position = Vector2(8, -8)
 	elif velocity.x < 0 :
+		direction = Direction.LEFT
 		$AnimatedSprite2D.play("move_left")
 		$InteractionArea.position = Vector2(-8, -8)
 	elif velocity.y > 0 :
+		direction = Direction.DOWN
 		$AnimatedSprite2D.play("move_down")
 		$InteractionArea.position = Vector2(0, 0)
 	elif velocity.y < 0 :
+		direction = Direction.UP
 		$AnimatedSprite2D.play("move_up")
 		$InteractionArea.position = Vector2(0, -16)
 	else: #velocity == Vector2(0,0)
@@ -101,7 +116,20 @@ func die() -> void:
 	
 func attack() -> void:
 	__show_sword()
+	__play_attack_animation()
 	$AttackDurationTimer.start()
+	is_attacking = true
+	
+func __play_attack_animation():
+	match direction:
+		Direction.RIGHT:
+			$AnimatedSprite2D.play("attack_right")
+		Direction.LEFT:
+			$AnimatedSprite2D.play("attack_left")
+		Direction.DOWN:
+			$AnimatedSprite2D.play("attack_down")
+		Direction.UP:
+			$AnimatedSprite2D.play("attack_up")
 
 func __show_sword():
 	$Sword.visible = true
