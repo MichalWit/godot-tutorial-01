@@ -11,6 +11,7 @@ var is_attacking: bool = false
 
 @export var move_speed: float = 100
 @export var push_strength: float = 100
+@export var knockback_strength: float = 300
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -179,4 +180,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_sword_area_2d_body_entered(body: Node2D) -> void:
-	body.queue_free() # delete node and all its children
+	var distance_to_enemy: Vector2 = body.global_position - global_position
+	var knockback_direction: Vector2 = distance_to_enemy.normalized()
+	
+	body.velocity += knockback_direction * knockback_strength

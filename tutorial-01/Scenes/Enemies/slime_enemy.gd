@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var target: Node2D
 var speed: int = 15
+var acceleration: int = 5
 
 enum Direction {
 	UP, DOWN, LEFT, RIGHT
@@ -21,7 +22,9 @@ func __chase_target() -> void:
 		var distance: Vector2 = target.global_position - global_position
 		var direction: Vector2 = distance.normalized()
 		
-		velocity = direction * speed
+		#velocity = direction * speed
+		velocity = velocity.move_toward(direction * speed, acceleration)
+		print(velocity)
 		
 func __play_movement() -> void:
 	if is_moving:
