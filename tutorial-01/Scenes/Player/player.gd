@@ -216,3 +216,7 @@ func _on_sword_area_2d_body_entered(body: Node2D) -> void:
 	body.HP -= 1
 	if body.HP <= 0:
 		body.queue_free()
+	
+	body.modulate = Color(1, 0.1, 0.1)
+	body.get_tree().create_timer(0.2)\
+		.timeout.connect(func(): if body: body.modulate = Color(1, 1, 1))
