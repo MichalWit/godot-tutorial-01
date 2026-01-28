@@ -194,3 +194,6 @@ func _on_sword_area_2d_body_entered(body: Node2D) -> void:
 	var knockback_direction: Vector2 = distance_to_enemy.normalized()
 	
 	body.velocity += knockback_direction * knockback_strength
+	body.HP -= 1
+	if body.HP <= 0:
+		body.queue_free()

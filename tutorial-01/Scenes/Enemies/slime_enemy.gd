@@ -3,6 +3,7 @@ extends CharacterBody2D
 var target: Node2D
 var speed: int = 15
 var acceleration: int = 5
+@export var HP: int = 2
 
 enum Direction {
 	UP, DOWN, LEFT, RIGHT
