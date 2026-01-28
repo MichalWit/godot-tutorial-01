@@ -123,8 +123,17 @@ func _on_hitbox_area_2d_body_entered(body: Node2D) -> void:
 func take_hit(body: Node2D) -> void:
 	SceneManager.player_hp -= 1
 	__update_health_animation()
+	__modulate_color(10)
 	
+	# create anonymous timer, emit 'timeout' after 0.2s
+	get_tree()\
+		.create_timer(0.2)\
+		.timeout\
+		.connect(func(): __modulate_color(1))
 	
+func __modulate_color(value: int):
+	($AnimatedSprite2D as AnimatedSprite2D)\
+		.modulate = Color(value, value, value)
 
 func __update_health_animation() -> void:
 	if SceneManager.player_hp == 3:
