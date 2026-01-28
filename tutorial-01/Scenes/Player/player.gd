@@ -22,12 +22,18 @@ func _ready() -> void:
 	if SceneManager.position != Vector2(0,0):
 		position = SceneManager.player_spawn_position
 		
-	var timer = get_node("AttackDurationTimer")
+	var timer: Timer = get_node("AttackDurationTimer")
 	timer.timeout.connect(_on_attack_timeout)
+	
+	var death_timer: Timer = get_node("DeathTimer")
+	death_timer.timeout.connect(_on_death_timer_timeout)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if SceneManager.player_hp <= 0:
+		return # stop displaying attack and movement if dead
+	
 	if not is_attacking:
 		__move_player()
 	
@@ -129,6 +135,10 @@ func __update_health_animation() -> void:
 		$CanvasLayer/HealthAnimation.play("1")
 
 func die() -> void:
+	($AnimatedSprite2D as AnimatedSprite2D).play("death")
+	($DeathTimer as Timer).start()
+
+func _on_death_timer_timeout() -> void:
 	SceneManager.player_hp = 3
 	get_tree().call_deferred("reload_current_scene")
 	

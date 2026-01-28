@@ -1,12 +1,14 @@
-[gd_scene load_steps=44 format=3 uid="uid://dg5qpa0rgx766"]
+[gd_scene load_steps=47 format=3 uid="uid://dg5qpa0rgx766"]
 
 [ext_resource type="Script" uid="uid://doakrl6v2tdj4" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://dattalaf8pxah" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/Caveman/SeparateAnim/Attack.png" id="2_0u5uq"]
 [ext_resource type="Texture2D" uid="uid://crvcmh3pp87wa" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/Caveman/SeparateAnim/Walk.png" id="2_a3d8c"]
+[ext_resource type="Texture2D" uid="uid://w8qjl74jivr3" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Actor/Characters/Caveman/SpriteSheet.png" id="3_jlvik"]
 [ext_resource type="Texture2D" uid="uid://b72ecmntcmp5r" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Items/Scroll/ScrollEmpty.png" id="3_xpcdj"]
 [ext_resource type="Texture2D" uid="uid://bhjyu0seq05m8" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Ui/Receptacle/Heart2.png" id="4_mtuoh"]
 [ext_resource type="Texture2D" uid="uid://ph7uae3t0uio" path="res://NinjaAssetPack/Ninja Adventure - Asset Pack/Items/Weapons/BigSword/Sprite.png" id="5_htcer"]
 [ext_resource type="Script" uid="uid://ci8prftkvax18" path="res://Scenes/Player/attack_duration_timer.gd" id="6_dd0ac"]
+[ext_resource type="Script" uid="uid://66jsvyyma40a" path="res://Scenes/Player/death_timer.gd" id="9_gk6dx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eksi1"]
 atlas = ExtResource("2_0u5uq")
@@ -23,6 +25,10 @@ region = Rect2(48, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_qr1w5"]
 atlas = ExtResource("2_0u5uq")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ythyg"]
+atlas = ExtResource("3_jlvik")
+region = Rect2(0, 96, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpcdj"]
 atlas = ExtResource("2_a3d8c")
@@ -120,6 +126,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ythyg")
+}],
+"loop": true,
+"name": &"death",
 "speed": 5.0
 }, {
 "frames": [{
@@ -246,34 +260,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dd0ac"]
 size = Vector2(8, 11.75)
 
-[sub_resource type="Animation" id="Animation_0u5uq"]
-resource_name = "attack_up"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sword:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.7853982, -0.7853982, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sword:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-5, -9)]
-}
-
 [sub_resource type="Animation" id="Animation_jlvik"]
 length = 0.001
 tracks/0/type = "value"
@@ -329,34 +315,6 @@ tracks/1/keys = {
 "values": [2.0943951023931953, 4.1887902047863905]
 }
 
-[sub_resource type="Animation" id="Animation_jhyir"]
-resource_name = "attack_right"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sword:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.34906584, 2.443461]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sword:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(7, 5)]
-}
-
 [sub_resource type="Animation" id="Animation_74mp2"]
 resource_name = "attack_left"
 length = 0.2
@@ -385,6 +343,62 @@ tracks/1/keys = {
 "values": [5.759586531581287, 3.6651914]
 }
 
+[sub_resource type="Animation" id="Animation_jhyir"]
+resource_name = "attack_right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.34906584, 2.443461]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sword:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_0u5uq"]
+resource_name = "attack_up"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.7853982, -0.7853982, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sword:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5, -9)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jlvik"]
 _data = {
 &"RESET": SubResource("Animation_jlvik"),
@@ -402,7 +416,7 @@ push_strength = 150.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_aqm4k")
-animation = &"attack_left"
+animation = &"death"
 autoplay = "move_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -477,6 +491,9 @@ script = ExtResource("6_dd0ac")
 libraries = {
 &"": SubResource("AnimationLibrary_jlvik")
 }
+
+[node name="DeathTimer" type="Timer" parent="."]
+script = ExtResource("9_gk6dx")
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
