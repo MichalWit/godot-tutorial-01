@@ -8,6 +8,7 @@ enum Direction {
 var direction: Direction = Direction.DOWN
 var is_moving: bool = false
 var is_attacking: bool = false
+var non_enemy_can_interact: bool = false
 
 @export var move_speed: float = 100
 @export var push_strength: float = 100
@@ -39,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	
 	__handle_collision()
 	
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and not non_enemy_can_interact:
 		attack()
 	
 	%TreasureLabel.text = str(SceneManager.collected_chests_names.size())
@@ -100,6 +101,7 @@ func _on_interaction_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("interactable"):
 		print("collider.can_interact = true")
 		body.can_interact = true
+		non_enemy_can_interact = true
 
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
@@ -107,6 +109,7 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("interactable"):
 		print("collider.can_interact = false")
 		body.can_interact = false
+		non_enemy_can_interact = false
 
 
 func _on_hitbox_area_2d_body_entered(body: Node2D) -> void:
