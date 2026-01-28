@@ -24,7 +24,7 @@ func __chase_target() -> void:
 		
 		#velocity = direction * speed
 		velocity = velocity.move_toward(direction * speed, acceleration)
-		print(velocity)
+		#print(velocity)
 		
 func __play_movement() -> void:
 	if is_moving:

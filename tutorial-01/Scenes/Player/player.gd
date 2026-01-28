@@ -11,7 +11,8 @@ var is_attacking: bool = false
 
 @export var move_speed: float = 100
 @export var push_strength: float = 100
-@export var knockback_strength: float = 300
+@export var knockback_strength: float = 200
+var acceleration = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,11 +50,12 @@ func __handle_collision() -> void:
 			collider.apply_central_force(-normal * push_strength)
 			
 		if collider.is_in_group("wall"):
-			print("wall")
+			pass
 
 func __set_direction():
 	var move_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = move_vector * move_speed
+	#velocity = move_vector * move_speed
+	velocity = velocity.move_toward(move_vector * move_speed, acceleration)
 	
 	if velocity.x > 0 :
 		direction = Direction.RIGHT
@@ -102,13 +104,21 @@ func _on_interaction_area_body_exited(body: Node2D) -> void:
 
 
 func _on_hitbox_area_2d_body_entered(body: Node2D) -> void:
-	take_hit()
+	
+	var distance_to_player: Vector2 = global_position - body.global_position
+	var knockback_direction: Vector2 = distance_to_player.normalized()
+	velocity += knockback_direction * knockback_strength
+	print(str(velocity) + " | " +str(knockback_direction) + " | " + str(knockback_strength))
+	
+	take_hit(body)
 	if SceneManager.player_hp <= 0:
 		die()
 
-func take_hit() -> void:
+func take_hit(body: Node2D) -> void:
 	SceneManager.player_hp -= 1
 	__update_health_animation()
+	
+	
 
 func __update_health_animation() -> void:
 	if SceneManager.player_hp == 3:
@@ -175,8 +185,8 @@ func __hide_sword():
 	$Sword.visible = false
 	$Sword/SwordArea2D.monitoring = false
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+#func _on_area_2d_body_entered(body: Node2D) -> void:
+#	pass # Replace with function body.
 
 
 func _on_sword_area_2d_body_entered(body: Node2D) -> void:
