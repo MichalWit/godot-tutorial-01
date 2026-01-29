@@ -19,6 +19,8 @@ func _ready() -> void:
 	($DamageSFX as AudioStreamPlayer2D).stream = hit_sound
 
 func _physics_process(delta: float) -> void:
+	if HP <= 0:
+		return # stop doint anyuthing if slime is dead
 	__chase_target()
 	move_and_slide() # trigger actual movement
 	
@@ -85,5 +87,7 @@ func take_hit():
 	($DamageSFX as AudioStreamPlayer2D).play()
 	
 func die():
+	$AnimatedSprite2D.visible = false
+	$CollisionShape2D.set_deferred("disabled", true)
 	$GPUParticles2D.emitting = true
 	get_tree().create_timer(1).timeout.connect(func(): queue_free())
