@@ -74,8 +74,12 @@ func __set_direction():
 		is_moving = false
 		
 func take_hit():
+	HP -= 1
+	if HP <= 0:
+		queue_free()
+	
 	modulate = Color(1, 0.1, 0.1)
 	get_tree().create_timer(0.2)\
-		.timeout.connect(func(): if self: modulate = Color(1, 1, 1))
+		.timeout.connect(func(): if is_instance_valid(self): modulate = Color(1, 1, 1))
 		
 	($DamageSFX as AudioStreamPlayer2D).play()
