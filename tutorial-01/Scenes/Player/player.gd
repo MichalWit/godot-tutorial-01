@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 var hit_sound = preload("res://NinjaAssetPack/Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Hit9.wav")
+var sword_sound = preload("res://NinjaAssetPack/Ninja Adventure - Asset Pack/Audio/Sounds/Whoosh & Slash/Sword2.wav")
 
 enum Direction {
 	UP, DOWN, LEFT, RIGHT
@@ -17,9 +18,18 @@ var non_enemy_can_interact: bool = false
 @export var knockback_strength: float = 200
 var acceleration = 10
 
+var sword_sfx: AudioStreamPlayer2D = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	__hide_sword()
+	
+	var sword_sfx = AudioStreamPlayer2D.new()
+	sword_sfx.stream = sword_sound
+	add_child(sword_sfx)
+	# https://docs.godotengine.org/en/stable/tutorials/plugins/running_code_in_the_editor.html#instancing-scenes
+	#sword_sfx.owner = get_tree().edited_scene_root # needed only for visibility
+	self.sword_sfx = sword_sfx
 	
 	($DamageSFX as AudioStreamPlayer2D).stream = hit_sound
 	
@@ -165,6 +175,7 @@ func attack() -> void:
 	__show_sword()
 	__play_attack_animation()
 	$AttackDurationTimer.start()
+	sword_sfx.play()
 	
 	
 func _on_attack_timeout() -> void:
