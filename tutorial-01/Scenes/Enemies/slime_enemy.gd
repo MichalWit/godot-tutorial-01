@@ -76,10 +76,14 @@ func __set_direction():
 func take_hit():
 	HP -= 1
 	if HP <= 0:
-		queue_free()
+		die()
 	
 	modulate = Color(1, 0.1, 0.1)
 	get_tree().create_timer(0.2)\
 		.timeout.connect(func(): if is_instance_valid(self): modulate = Color(1, 1, 1))
 		
 	($DamageSFX as AudioStreamPlayer2D).play()
+	
+func die():
+	$GPUParticles2D.emitting = true
+	get_tree().create_timer(1).timeout.connect(func(): queue_free())
