@@ -1,15 +1,22 @@
 extends CharacterBody2D
 
+class_name SlimeEnemy
+
 var target: Node2D
 var speed: int = 15
 var acceleration: int = 5
 @export var HP: int = 2
+
+var hit_sound = preload("res://NinjaAssetPack/Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Hit1.wav")
 
 enum Direction {
 	UP, DOWN, LEFT, RIGHT
 }
 var direction: Direction = Direction.DOWN
 var is_moving: bool = false
+
+func _ready() -> void:
+	($DamageSFX as AudioStreamPlayer2D).stream = hit_sound
 
 func _physics_process(delta: float) -> void:
 	__chase_target()
@@ -65,3 +72,10 @@ func __set_direction():
 		is_moving = true
 	else:
 		is_moving = false
+		
+func take_hit():
+	modulate = Color(1, 0.1, 0.1)
+	get_tree().create_timer(0.2)\
+		.timeout.connect(func(): if self: modulate = Color(1, 1, 1))
+		
+	($DamageSFX as AudioStreamPlayer2D).play()

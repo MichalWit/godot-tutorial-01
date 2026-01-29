@@ -178,6 +178,7 @@ autoplay = "default"
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_1u7tg")
 
-[node name="DamageSfx" type="AudioStreamPlayer2D" parent="."]
+[node name="DamageSFX" type="AudioStreamPlayer2D" parent="."]
+volume_db = 7.522
 
 [connection signal="body_entered" from="PlayerDetectionArea2D" to="." method="_on_player_detection_entered"]
