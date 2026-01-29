@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+var hit_sound = preload("res://NinjaAssetPack/Ninja Adventure - Asset Pack/Audio/Sounds/Hit & Impact/Hit9.wav")
+
 enum Direction {
 	UP, DOWN, LEFT, RIGHT
 }
@@ -18,6 +20,8 @@ var acceleration = 10
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	__hide_sword()
+	
+	($DamageSFX as AudioStreamPlayer2D).stream = hit_sound
 	
 	__update_health_animation()
 	if SceneManager.position != Vector2(0,0):
@@ -127,6 +131,8 @@ func take_hit(body: Node2D) -> void:
 	SceneManager.player_hp -= 1
 	__update_health_animation()
 	__modulate_color(10)
+	
+	$DamageSFX.play()
 	
 	# create anonymous timer, emit 'timeout' after 0.2s
 	get_tree()\
